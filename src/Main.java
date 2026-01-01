@@ -3,27 +3,49 @@
 public class Main {
     public static void main(String[] args) {
         System.out.println("Задача № 1");
-        boolean clientOS = true;
-        if (clientOS == true){
-            System.out.println("Установите версию приложения для Android по ссылке");
-        } else System.out.println("Установите версию приложения для iOS по ссылке");
-        System.out.println(" ");
+        int clientOS = 0;
+        switch (clientOS) {
+            case 0:
+                System.out.println("Установите версию приложения для Android по ссылке");
+                break;
+            case 1:
+                System.out.println("Установите версию приложения для iOS по ссылке");
+                break;
+            default:
+                System.out.println("Выберите 0 или 1...");
+        }
+       System.out.println(" ");
 
         System.out.println("Задача № 2");
-        int clientDeviceYear = 2010;
+        int clientDeviceYear = 2016;
         if (clientDeviceYear >= 2015){
-            if (clientOS == true){
-                System.out.println("Установите версию приложения для Android по ссылке");
-            } else System.out.println("Установите версию приложения для iOS по ссылке");
-        } else if (clientOS == true) {
-            System.out.println("Установите облегченную версию приложения для Android по ссылке");
-        } else System.out.println("Установите облегченную версию приложения для iOS по ссылке");
+            switch (clientOS) {
+                case 0:
+                    System.out.println("Установите версию приложения для Android по ссылке");
+                    break;
+                case 1:
+                    System.out.println("Установите версию приложения для iOS по ссылке");
+                    break;
+                default:
+                    System.out.println("Выберите 0 или 1...");
+            }
+        } else
+            switch (clientOS) {
+                case 0:
+                    System.out.println("Установите облегчённую версию приложения для Android по ссылке");
+                    break;
+                case 1:
+                    System.out.println("Установите облегчённую версию приложения для iOS по ссылке");
+                    break;
+                default:
+                    System.out.println("Выберите 0 или 1...");
+            }
         System.out.println(" ");
 
         System.out.println("Задача № 3");
-        int year = 2021;
+        int year = 2015;
         int originalYear = 1584;
-        if (year >= originalYear &&  year % 4 == 0){
+        if (year >= originalYear && (year % 400 ==0 || (year % 4 == 0 && year % 100 != 0))){
             System.out.println(year + " год является високосным");
         } else System.out.println(year + " год не является високостным");
         System.out.println(" ");
@@ -32,13 +54,16 @@ public class Main {
         int deliveryDistance = 95;
         int days = 2;
         if (deliveryDistance > 100){
-            System.out.println("Свыше " + deliveryDistance + " км. доставки нет...");
-        } else if (deliveryDistance <= 20){
+            System.out.println("Свыше 100 км. доставки нет...");
+        } else if (deliveryDistance <= 20 && deliveryDistance >= 0){
             System.out.println("Доставка в пределах " + deliveryDistance + " км, занимает сутки");
         } else if (deliveryDistance > 20 && deliveryDistance <= 60) {
             System.out.println("Доставка в пределах от 20 км. до 60 км. займёт " + days + " день");
-        } else { days = days + 1;
+        } else if (deliveryDistance > 60 && deliveryDistance <= 100){
+            days = days + 1;
             System.out.println("Доставка в пределах от 60 км. до 100 км. займёт " + days + " дней");
+        } else if (deliveryDistance < 0) {
+            System.out.println("В рамках физики Ньютона и Эйнштейна расстояние не может быть отрицательным:)");
         }
         System.out.println(" ");
 
